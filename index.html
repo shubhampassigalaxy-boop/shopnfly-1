@@ -73,13 +73,13 @@
 
 <style>
   :root{
-    --navy: #0F2438;
-    --navy-deep: #0A1826;
-    --gold: #B8923F;
-    --teal: #1E7A72;
-    --ivory: #F5F0E6;
-    --hibiscus: #C6432D;
-    --ink: #1B2A33;
+    --navy: #2C5F7D;
+    --navy-deep: #1A3A52;
+    --gold: #FFB347;
+    --teal: #00A896;
+    --ivory: #FFF8E7;
+    --hibiscus: #FF6B6B;
+    --ink: #2D3436;
   }
 
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -109,24 +109,25 @@
     font-size:.78rem;
     letter-spacing:.12em;
     text-transform:uppercase;
-    color:var(--gold);
+    color:var(--teal);
   }
 
   .route-strip .line{
     flex:1;
     height:1px;
-    background:linear-gradient(90deg, var(--gold), transparent);
+    background:linear-gradient(90deg, var(--teal), transparent);
   }
 
   /* ---------- HERO ---------- */
   .hero{
     background:
-      radial-gradient(1200px 500px at 15% -10%, rgba(184,146,63,0.18), transparent 60%),
+      radial-gradient(1200px 500px at 15% -10%, rgba(255,179,71,0.18), transparent 60%),
       linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
     color:var(--ivory);
-    padding:4.5rem 6vw 5rem;
+    padding:4.5rem 0 5rem;
     position:relative;
     overflow:hidden;
+    border-radius:0 0 24px 24px;
   }
 
   .hero::after{
@@ -143,7 +144,7 @@
     pointer-events:none;
   }
 
-  .hero-inner{max-width:920px; position:relative; z-index:1;}
+  .hero-inner{width:100%; max-width:100%; position:relative; z-index:1; padding:0 2rem;}
 
   .hero h1{
     color:var(--ivory);
@@ -168,14 +169,14 @@
     font-weight:600;
     letter-spacing:.02em;
     border-radius:2px;
-    transition:transform .15s ease, background .15s ease;
+    transition:transform .15s ease, background .15s ease, box-shadow .15s ease;
   }
-  .hero-cta:hover{background:#a83a26; transform:translateY(-1px);}
+  .hero-cta:hover{background:#FF5252; transform:translateY(-1px); box-shadow:0 4px 12px rgba(255,107,107,0.3);}
 
   /* ---------- CONTENT ---------- */
-  main{max-width:920px; margin:0 auto; padding:0 6vw;}
+  main{width:100%; padding:0 2rem;}
 
-  section{padding:3.4rem 0; border-bottom:1px solid #E1DAC8;}
+  section{padding:3.4rem 0; border-bottom:1px solid #E8D5B5;}
   section:last-of-type{border-bottom:none;}
 
   h2{font-size:clamp(1.5rem, 2.6vw, 2rem); margin-bottom:1rem;}
@@ -191,7 +192,7 @@
 
   h3{font-size:1.15rem; margin:1.6rem 0 .5rem; color:var(--teal);}
 
-  p{max-width:70ch; margin-bottom:1rem; color:#2E3B44;}
+  p{max-width:70ch; margin-bottom:1rem; color:#2D3436;}
 
   ul.check{list-style:none; margin:1rem 0;}
   ul.check li{
@@ -210,22 +211,34 @@
 
   .grid-two{
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(2, 1fr);
     gap:2rem;
   }
   @media(max-width:680px){.grid-two{grid-template-columns:1fr;}}
+  @media(min-width:1200px){.grid-two{grid-template-columns:repeat(4, 1fr);}}
 
   .card{
-    background:#FBF8F1;
-    border:1px solid #E1DAC8;
+    background:#FFFBF0;
+    border:1px solid #E8D5B5;
     border-left:3px solid var(--teal);
     padding:1.4rem 1.5rem;
+    border-radius:8px;
+    box-shadow:0 4px 12px rgba(44,95,125,0.08);
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 8px 24px rgba(44,95,125,0.15);
   }
   .card h3{margin-top:0;}
 
   /* ---------- IMAGES ---------- */
   figure.feature-image{
     margin:1.6rem 0 1.8rem;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 8px 32px rgba(15,36,56,0.12);
+    background:#FBF8F1;
   }
   figure.feature-image img{
     width:100%;
@@ -233,20 +246,25 @@
     aspect-ratio:16/10;
     object-fit:cover;
     display:block;
-    border-radius:2px;
-    box-shadow:0 12px 30px -12px rgba(15,36,56,0.35);
+    transition:transform 0.4s ease;
+  }
+  figure.feature-image:hover img{
+    transform:scale(1.03);
   }
   figure.feature-image figcaption{
-    margin-top:.6rem;
+    padding:0.8rem 1rem;
     font-family:'IBM Plex Mono',monospace;
     font-size:.78rem;
     letter-spacing:.02em;
     color:#5B6670;
+    border-left:3px solid var(--gold);
+    background:#FFFBF0;
+    margin:0;
   }
 
   /* FAQ */
   details{
-    border-bottom:1px solid #E1DAC8;
+    border-bottom:1px solid #E8D5B5;
     padding:1.1rem 0;
   }
   details summary{
@@ -261,7 +279,7 @@
   details summary::after{
     content:"+";
     float:right;
-    color:var(--gold);
+    color:var(--teal);
     font-size:1.2rem;
   }
   details[open] summary::after{content:"–";}
@@ -271,7 +289,7 @@
     background:var(--navy-deep);
     color:var(--ivory);
     text-align:center;
-    padding:3.5rem 6vw;
+    padding:3.5rem 2rem;
   }
   footer.cta-band h2{color:var(--ivory);}
   footer.cta-band p{color:#CFC9BB; margin:0 auto 1.6rem; max-width:50ch;}
@@ -287,6 +305,206 @@
     text-decoration:none;
     border-bottom:1px solid var(--teal);
   }
+  .internal-links a:hover{
+    border-bottom-color:var(--gold);
+  }
+
+  /* ---------- POPULAR FLIGHT SEARCHES ---------- */
+  .popular-searches{
+    background:linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding:4rem 2rem;
+    position:relative;
+    overflow:hidden;
+  }
+  
+  .popular-searches::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-image: 
+      linear-gradient(30deg, #dee2e6 12%, transparent 12.5%, transparent 87%, #dee2e6 87.5%, #dee2e6),
+      linear-gradient(150deg, #dee2e6 12%, transparent 12.5%, transparent 87%, #dee2e6 87.5%, #dee2e6),
+      linear-gradient(30deg, #dee2e6 12%, transparent 12.5%, transparent 87%, #dee2e6 87.5%, #dee2e6),
+      linear-gradient(150deg, #dee2e6 12%, transparent 12.5%, transparent 87%, #dee2e6 87.5%, #dee2e6),
+      linear-gradient(60deg, #dee2e677 25%, transparent 25.5%, transparent 75%, #dee2e677 75%, #dee2e677),
+      linear-gradient(60deg, #dee2e677 25%, transparent 25.5%, transparent 75%, #dee2e677 75%, #dee2e677);
+    background-size: 80px 140px;
+    background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+    opacity:0.3;
+    pointer-events:none;
+  }
+
+  .popular-searches-inner{
+    width:100%;
+    position:relative;
+    z-index:1;
+  }
+
+  .popular-searches h2{
+    text-align:center;
+    margin-bottom:2.5rem;
+    color:var(--navy-deep);
+  }
+
+  .search-cards{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:2rem;
+  }
+
+  @media(max-width:900px){
+    .search-cards{
+      grid-template-columns:1fr;
+    }
+  }
+  @media(min-width:1400px){
+    .search-cards{
+      grid-template-columns:repeat(4, 1fr);
+    }
+  }
+
+  .search-card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 8px 24px rgba(44,95,125,0.1);
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+    position:relative;
+  }
+
+  .search-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 12px 32px rgba(44,95,125,0.2);
+  }
+
+  .search-card-image{
+    height:200px;
+    overflow:hidden;
+    position:relative;
+  }
+
+  .search-card-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform 0.4s ease;
+  }
+
+  .search-card:hover .search-card-image img{
+    transform:scale(1.1);
+  }
+
+  .search-card-content{
+    padding:1.5rem;
+  }
+
+  .search-card h3{
+    margin:0 0 0.8rem 0;
+    color:var(--navy-deep);
+    font-size:1.2rem;
+  }
+
+  .search-card p{
+    font-size:0.9rem;
+    color:#6c757d;
+    margin-bottom:1.2rem;
+  }
+
+  .view-deals-btn{
+    display:inline-block;
+    padding:0.6rem 1.2rem;
+    background:var(--teal);
+    color:white;
+    text-decoration:none;
+    border-radius:4px;
+    font-size:0.85rem;
+    font-weight:600;
+    transition:background 0.2s ease;
+  }
+
+  .view-deals-btn:hover{
+    background:var(--navy);
+  }
+
+  .card-nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-top:1rem;
+  }
+
+  .nav-arrow{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:var(--ivory);
+    border:1px solid var(--teal);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:background 0.2s ease;
+  }
+
+  .nav-arrow:hover{
+    background:var(--teal);
+    color:white;
+  }
+
+  /* ---------- PLANE ANIMATION ---------- */
+  .plane-animation{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    z-index:1000;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 0.5s ease;
+  }
+
+  .plane-animation.visible{
+    opacity:1;
+  }
+
+  .plane-icon{
+    width:60px;
+    height:60px;
+    animation:fly 3s ease-in-out infinite;
+  }
+
+  @keyframes fly{
+    0%, 100%{
+      transform:translateY(0) rotate(-10deg);
+    }
+    50%{
+      transform:translateY(-20px) rotate(5deg);
+    }
+  }
+
+  .plane-trail{
+    position:absolute;
+    width:2px;
+    height:40px;
+    background:linear-gradient(to bottom, var(--teal), transparent);
+    right:50%;
+    top:100%;
+    transform:translateX(50%);
+    animation:trail 2s ease-in-out infinite;
+  }
+
+  @keyframes trail{
+    0%, 100%{
+      opacity:0.6;
+      height:40px;
+    }
+    50%{
+      opacity:0.2;
+      height:60px;
+    }
+  }
 </style>
 </head>
 
@@ -301,7 +519,7 @@
     <div class="route-strip">
       <span>UK</span><span class="line"></span><span>LON</span><span class="line"></span><span>MBJ</span><span class="line"></span><span>MONTEGO BAY, JAMAICA</span>
     </div>
-    <h1>Business Class Flights to Montego Bay, Jamaica</h1>
+<h1><a href="https://shopnfly.co.uk/business-class/montego-bay">Business Class Flights to Montego Bay, Jamaica</a></h1>
     <p class="lede">
       Searching for flights to Jamaica Montego Bay that don't leave you drained
       before the holiday even starts? A calmer, more comfortable way to reach
@@ -335,7 +553,7 @@
 
     <figure class="feature-image">
       <img
-        src="/images/business-class-cabin-flights-to-jamaica-montego-bay.jpg"
+        src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&h=750&fit=crop"
         alt="Business class cabin seating on a long-haul flight to Jamaica Montego Bay"
         loading="lazy"
         width="1200" height="750">
@@ -371,7 +589,7 @@
 
     <figure class="feature-image">
       <img
-        src="/images/doctors-cave-beach-montego-bay-jamaica.jpg"
+        src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=1200&h=750&fit=crop"
         alt="Doctor's Cave Beach in Montego Bay, Jamaica near Sangster International Airport"
         loading="lazy"
         width="1200" height="750">
@@ -441,7 +659,7 @@
 
     <figure class="feature-image">
       <img
-        src="/images/rose-hall-great-house-montego-bay-jamaica.jpg"
+        src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1200&h=750&fit=crop"
         alt="Rose Hall Great House near Montego Bay, Jamaica"
         loading="lazy"
         width="1200" height="750">
@@ -455,6 +673,62 @@
       <a href="/destinations/jamaica">Explore More of Jamaica</a>
       <a href="/business-class/caribbean">Business Class to the Caribbean</a>
       <a href="/guides/best-time-to-visit-jamaica">Jamaica Travel Guide</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       POPULAR FLIGHT SEARCHES
+       ============================================================ -->
+  <section class="popular-searches">
+    <div class="popular-searches-inner">
+      <h2><span class="eyebrow">Explore More</span>Popular Flight Searches</h2>
+      
+      <div class="search-cards">
+        <div class="search-card">
+          <div class="search-card-image">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&h=300&fit=crop" alt="Top Flights">
+          </div>
+          <div class="search-card-content">
+            <h3>Top Flights</h3>
+            <p>Discover our most popular business class routes and destinations.</p>
+            <div class="card-nav">
+              <a href="#" class="view-deals-btn">VIEW DEALS</a>
+              <div style="display:flex; gap:0.5rem;">
+                <div class="nav-arrow">‹</div>
+                <div class="nav-arrow">›</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="search-card">
+          <div class="search-card-image">
+            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&h=300&fit=crop" alt="Special Offers">
+          </div>
+          <div class="search-card-content">
+            <h3>Special Offers</h3>
+            <p>Exclusive deals and discounts on premium cabin flights worldwide.</p>
+            <a href="#" class="view-deals-btn">VIEW DEALS</a>
+          </div>
+        </div>
+
+        <div class="search-card">
+          <div class="search-card-image">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop" alt="Travel Calendar">
+          </div>
+          <div class="search-card-content">
+            <h3>Travel Calendar</h3>
+            <p>Find the best times to fly with our seasonal travel guide.</p>
+            <div class="card-nav">
+              <a href="#" class="view-deals-btn">VIEW DEALS</a>
+              <div style="display:flex; gap:0.5rem;">
+                <div class="nav-arrow">‹</div>
+                <div class="nav-arrow">›</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -492,6 +766,37 @@
   <p>Ready to look at flights to Jamaica Montego Bay for your next trip? Speak with our travel specialists about business class options for your journey.</p>
   <a class="hero-cta" href="/enquire">Enquire Now</a>
 </footer>
+
+<!-- Plane Animation -->
+<div class="plane-animation" id="planeAnimation">
+  <svg class="plane-icon" viewBox="0 0 24 24" fill="var(--teal)">
+    <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+  </svg>
+  <div class="plane-trail"></div>
+</div>
+
+<script>
+  // Plane animation on scroll
+  const planeAnimation = document.getElementById('planeAnimation');
+  let planeVisible = false;
+
+  function handleScroll() {
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    
+    // Show plane after scrolling 20% of the page
+    if (scrollY > windowHeight * 0.2 && !planeVisible) {
+      planeAnimation.classList.add('visible');
+      planeVisible = true;
+    } else if (scrollY < windowHeight * 0.1 && planeVisible) {
+      planeAnimation.classList.remove('visible');
+      planeVisible = false;
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll);
+  handleScroll(); // Check on load
+</script>
 
 </body>
 </html>
